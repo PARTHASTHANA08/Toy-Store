@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>Toy Store</title>
+     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+      <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+      <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+      <script src="./js/buttons.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+      <link href="./style.css" rel="stylesheet" />
+    </head>
+    <body style="margin : 0px; overflow: hidden;">
+      <a-scene>
+        <a-entity camera></a-entity>
+        <a-assets>
+        <a-asset-item id="toy" src="./toy/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-marker id="toyMarker" type="pattern" url="./marker/pattern-markerImage.patt" 
+        cursor="rayOrigin: mouse">
+        <a-entity id="transformer" position="-2 -5 0" scale="0.01 0.01 0.01" rotation="90 90 -90"
+        gltf-model="#toy"
+        gesture-handler createButtons>
+        </a-entity>
+        <a-plane position="0 0 0" width="1.5" height="1.5" rotation="-90 0 0">
+        <a-plane position="0 0.89 0.02" width="1.49" height="0.3" rotation="0 0 0" color="#F0C30F">
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+        text="font:monoid;value:TRANSFORMER TOY(Optimus Prime);color:black;width: 1.8;height:1;align:center;"></a-entity>
+        </a-plane>
+        <a-entity position="0 0 0.1" rotation="0 0 0"
+          text="color: black; align: center; width: 2; font: monoid;
+               value: Functional toy model of famous \n transformer model 'OPTIMUS PRIME'.
+               \n It is made of high quality of plastic \n and can be transformed into a truck manually.
+               \n It also has electrical lights and motor wheels. \n\n Price: $15/-       Age: 8-10">
+        </a-entity>
+        </a-plane>
+        </a-marker>
+
+      </a-scene>  
+
+    </body>
+</html>
